@@ -26,14 +26,14 @@ fetch(
     method: 'PUT',   
     headers: { 'Content-Type': 'application/json' },   
     body: JSON.stringify({ text: 'New message edit', id: 2 })  
-  }  
+   }  
 ).then(result => result.json().then(console.log));  
   
 // DELETE existing  
 fetch('/message/3', { method: 'DELETE' }).then(result => console.log(result))  
   
 # Environment variables  
-clientId=your_clientId;clientSecret=your_clientSecret  
+clientId=<your_clientId>;clientSecret=<your_clientSecret>  
   
 # Параметры для работы с БД  
 Также в файле "application.properties"
