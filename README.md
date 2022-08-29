@@ -1,7 +1,7 @@
 # Spring-Boot-Rest-and-Vue.js
 Java Spring REST Application using Vue.js
 
-Скрипты для асинхронных запросов из консоли:
+# Скрипты для асинхронных запросов из консоли
 
 // GET all  
 fetch('/message/').then(response => response.json().then(console.log))
