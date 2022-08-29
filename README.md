@@ -32,7 +32,7 @@ fetch(
 // DELETE existing  
 fetch('/message/3', { method: 'DELETE' }).then(result => console.log(result))  
   
-#Environment variables  
+# Environment variables  
 clientId=your_clientId;clientSecret=your_clientSecret  
   
 # Параметры для работы с БД  
