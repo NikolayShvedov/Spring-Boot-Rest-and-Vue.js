@@ -1,4 +1,4 @@
-package ru.develop.springrest.domain;
+package ru.develop.springrest.domain.view;
 
 public final class Views {
 

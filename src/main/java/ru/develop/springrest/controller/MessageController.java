@@ -5,7 +5,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import ru.develop.springrest.domain.Message;
-import ru.develop.springrest.domain.Views;
+import ru.develop.springrest.domain.view.Views;
 import ru.develop.springrest.repository.MessageRepo;
 
 import java.time.LocalDateTime;
