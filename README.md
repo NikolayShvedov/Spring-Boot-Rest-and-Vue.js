@@ -53,6 +53,9 @@ To start the frontend code, you need to use the `npm start` command in the termi
   
 Note: Since all dependency libraries are written in the `package.json` file, instead of `steps 3-5`, it is enough to run `yarn install` command in the terminal.
 
+# Setting up SockJS + Stomp for WebSocket  
+yarn add sockjs-client @stomp/stompjs  
+
 # Параметры для работы с БД  
 Также в файле "application.properties"
 

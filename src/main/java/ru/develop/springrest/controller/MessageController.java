@@ -3,6 +3,8 @@ package ru.develop.springrest.controller;
 import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.*;
 import ru.develop.springrest.domain.Message;
 import ru.develop.springrest.domain.view.Views;
@@ -51,5 +53,11 @@ public class MessageController {
     @DeleteMapping("{id}")
     public void deleteMessage(@PathVariable("id") Message message) {
         messageRepo.delete(message);
+    }
+
+    @MessageMapping("/changeMessage")
+    @SendTo("/topic/activity")
+    public Message change(Message message) {
+        return messageRepo.save(message);
     }
 }
