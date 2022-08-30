@@ -49,12 +49,24 @@ yarn add webpack-dev-server -D
 6) Download 'Vue.js devtools' from google chrome store  
 https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd/related?hl=ru  
   
-To start the frontend code, you need to use the `npm start` command in the terminal  
+To start the frontend code, you need to use the `yarn start` command in the terminal  
   
 Note: Since all dependency libraries are written in the `package.json` file, instead of `steps 3-5`, it is enough to run `yarn install` command in the terminal.
 
 # Setting up SockJS + Stomp for WebSocket  
-yarn add sockjs-client @stomp/stompjs  
+yarn add sockjs-client @stomp/stompjs 
+
+# Connecting Styling Using Vuetify  
+1) Connecting css styles:  
+yarn add -D vue-style-loader css-loader  
+2) Add to the `webpack.config.js` file:  
+test: /\.css$/,  
+use: [  
+ 'vue-style-loader',  
+ 'css-loader'  
+]  
+3) Install Vuetify:  
+yarn add -D vuetify  
 
 # Параметры для работы с БД  
 Также в файле "application.properties"
