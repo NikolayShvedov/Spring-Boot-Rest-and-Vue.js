@@ -22,7 +22,7 @@ public class WsSender {
         this.mapper = mapper;
     }
 
-    // todo: This method uses generic, lambda expression and JsonView
+    // TODO: This method uses generic, lambda expression and JsonView
     public <T> BiConsumer<EventType, T> getSender(ObjectType objectType, Class view) {
         ObjectWriter writer = mapper
                 .setConfig(mapper.getSerializationConfig())
