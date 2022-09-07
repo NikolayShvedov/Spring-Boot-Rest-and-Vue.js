@@ -66,7 +66,10 @@ use: [
  'css-loader'  
 ]  
 3) Install Vuetify:  
-yarn add -D vuetify  
+yarn add -D vuetify 
+
+# Install Vuex  
+yarn add vuex  
 
 # Параметры для работы с БД  
 Также в файле "application.properties"
