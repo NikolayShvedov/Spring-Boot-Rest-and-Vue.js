@@ -71,6 +71,9 @@ yarn add -D vuetify
 # Install Vuex  
 yarn add vuex  
 
+# Install Vue Router  
+yarn add vue-router  
+
 # Параметры для работы с БД  
 Также в файле "application.properties"
 
