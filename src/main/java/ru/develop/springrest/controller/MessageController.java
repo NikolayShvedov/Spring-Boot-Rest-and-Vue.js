@@ -7,8 +7,10 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import ru.develop.springrest.domain.Message;
+import ru.develop.springrest.domain.User;
 import ru.develop.springrest.domain.view.Views;
 import ru.develop.springrest.dto.EventType;
 import ru.develop.springrest.dto.MetaDto;
@@ -55,9 +57,10 @@ public class MessageController {
     }
 
     @PostMapping
-    public Message addMessage(@RequestBody Message message) throws IOException {
+    public Message addMessage(@RequestBody Message message, @AuthenticationPrincipal User user) throws IOException {
         message.setCreationDate(LocalDateTime.now());
         fillMeta(message);
+        message.setAuthor(user);
         Message updatedMessage = messageRepo.save(message);
 
         wsSender.accept(EventType.CREATE, updatedMessage);
