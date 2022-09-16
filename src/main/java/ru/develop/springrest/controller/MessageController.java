@@ -71,9 +71,11 @@ public class MessageController {
     @PutMapping("{id}")
     public Message updateMessage(
             @PathVariable("id") Message messageFromDB,
-            @RequestBody Message message) throws IOException {
+            @RequestBody Message message,
+            @AuthenticationPrincipal User user) throws IOException {
         BeanUtils.copyProperties(message, messageFromDB, "id");
         fillMeta(messageFromDB);
+        messageFromDB.setAuthor(user);
         Message updatedMessage = messageRepo.save(messageFromDB);
 
         wsSender.accept(EventType.UPDATE, updatedMessage);

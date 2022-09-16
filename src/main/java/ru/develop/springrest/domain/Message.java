@@ -1,7 +1,6 @@
 package ru.develop.springrest.domain;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonView;
+import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import ru.develop.springrest.domain.view.Views;
 
@@ -13,6 +12,10 @@ import java.util.List;
 @Table
 @ToString(of = {"id", "text"})
 @EqualsAndHashCode(of = {"id"})
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id"
+)
 public class Message {
 
     @Id
@@ -118,6 +121,9 @@ public class Message {
     }
 
     public void setComments(List<Comment> comments) {
-        this.comments = comments;
+        this.comments.clear();
+        if (comments != null) {
+            this.comments.addAll(comments);
+        }
     }
 }

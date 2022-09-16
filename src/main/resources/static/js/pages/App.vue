@@ -34,7 +34,12 @@ import {addHandler} from 'util/ws'
 export default {
   computed: mapState(['profile']),
   methods: {
-    ...mapMutations(['addMessageMutation', 'updateMessageMutation', 'removeMessageMutation']),
+    ...mapMutations([
+      'addMessageMutation',
+      'updateMessageMutation',
+      'removeMessageMutation',
+      'addCommentMutation'
+    ]),
     showMessages() {
       this.$router.push('/')
     },
@@ -54,6 +59,14 @@ export default {
             break
           case 'REMOVE':
             this.removeMessageMutation(data.body)
+            break
+          default:
+            console.error(`Looks like the event type if unknown "${data.eventType}"`)
+        }
+      } else if (data.objectType === 'COMMENT') {
+        switch (data.eventType) {
+          case 'CREATE':
+            this.addCommentMutation(data.body)
             break
           default:
             console.error(`Looks like the event type if unknown "${data.eventType}"`)
