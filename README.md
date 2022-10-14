@@ -74,6 +74,18 @@ yarn add vuex
 # Install Vue Router  
 yarn add vue-router  
 
+# Docker
+Build gradle:  
+`gradlew clean build`  
+Build project image with docker:  
+`docker image build ./ -t nikolayshved/spring-rest:1.0.0`  
+Running the docker container container with an images:   
+`docker run -p 8081:9000 -d --name spring-rest-service nikolayshved/spring-rest:1.0.0`  
+Stopping a docker container:  
+`docker stop spring-rest-service`  
+Remove vacation-service container  
+`docker rm spring-rest-service`
+
 # Параметры для работы с БД  
 Также в файле "application.properties"
 
