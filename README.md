@@ -86,6 +86,9 @@ Stopping a docker container:
 Remove vacation-service container  
 `docker rm spring-rest-service`
 
+# Run postgres DB in docker
+In project root run command `docker-compose up --build`
+
 # Параметры для работы с БД  
 Также в файле "application.properties"
 
